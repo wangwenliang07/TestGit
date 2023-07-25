@@ -6,3 +6,5 @@ this is binary file
 
 # Doc
 this is doc file
+
+# Test
