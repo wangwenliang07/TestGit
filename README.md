@@ -6,3 +6,7 @@ this is binary file
 
 # Doc
 this is doc file
+
+# conf
+this is configuration file
+
