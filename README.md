@@ -8,3 +8,6 @@ this is binary file
 this is doc file
 
 # Test
+
+# conf
+this is configuration file
