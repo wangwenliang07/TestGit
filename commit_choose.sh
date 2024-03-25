@@ -1,39 +1,25 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "请选择您的操作："
-echo "1. 添加新功能 (Add new feature)"
-echo "2. 修复bug (Fix bug)"
-echo "3. 优化代码 (Optimize code)"
-echo "4. 更新文档 (Update documentation)"
-echo "5. 其他更改 (Other changes)"
-
-read -p "请选择操作编号： " choice
+echo "请选择您要执行的操作："
+echo "1. 添加所有更改并提交"
+echo "2. 添加所有更改但不提交"
+echo "3. 取消提交"
+read choice
 
 case $choice in
     1)
-        operation="添加新功能"
+        git add .
+        echo "请输入commit信息："
+        cat > .git/COMMIT_EDITMSG
         ;;
     2)
-        operation="修复bug"
+        git add .
+        echo "所有更改已经暂存，但尚未提交。"
         ;;
     3)
-        operation="优化代码"
-        ;;
-    4)
-        operation="更新文档"
-        ;;
-    5)
-        operation="其他更改"
+        echo "取消提交。"
         ;;
     *)
-        operation="未知操作"
+        echo "无效的选项。"
         ;;
 esac
-
-read -p "是否需要编写commit信息？(y/n)： " write_commit
-
-if [ "$write_commit" = "y" ]; then
-    echo "您选择的操作是: $operation"
-    echo "请编写commit信息，按 Ctrl+D 保存退出编辑："
-    cat > .git/COMMIT_EDITMSG
-fi
